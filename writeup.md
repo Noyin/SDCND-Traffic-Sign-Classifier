@@ -20,11 +20,11 @@ The goals / steps of this project are the following:
 [image1]: ./examples/barplot.png "Visualization"
 [image2]: ./examples/grayscale.png "Grayscaling"
 [image3]: ./examples/image_shift.jpg "Image shift"
-[image4]: ./examples/image_01.jpg "Traffic Sign 1"
-[image5]: ./examples/image_02.jpg "Traffic Sign 2"
-[image6]: ./examples/image_03.jpg "Traffic Sign 3"
-[image7]: ./examples/image_04.jpg "Traffic Sign 4"
-[image8]: ./examples/image_05.jpg "Traffic Sign 5"
+[image4]: ./examples/image_01.jpg =30x30 "Traffic Sign 1"
+[image5]: ./examples/image_02.jpg =30x30 "Traffic Sign 2"
+[image6]: ./examples/image_03.jpg =30x30 "Traffic Sign 3"
+[image7]: ./examples/image_04.jpg =30x30 "Traffic Sign 4"
+[image8]: ./examples/image_05.jpg =30x30 "Traffic Sign 5"
 [image9]: ./examples/image_06.png "softmax probalities for image 1"
 [image10]: ./examples/image_07.png "softmax probalities for image 2"
 [image11]: ./examples/image_08.png "softmax probalities for image 3"
@@ -32,10 +32,10 @@ The goals / steps of this project are the following:
 [image13]: ./examples/image_10.png "softmax probalities for image 5"
 [image14]: ./examples/sample_image.png "Sample Image"
 [image15]: ./examples/sample_image_gray.png "Sample Image Gray"
-[image16]: ./examples/sample_image_gray_up.png "Sample Image Gray shifted up"
-[image17]: ./examples/sample_image_gray_down.png "Sample Image Gray shifted down"
-[image18]: ./examples/sample_image_gray_left.png "Sample Image Gray shifted left"
-[image19]: ./examples/sample_image_gray_right.png "Sample Image Gray shifted right"
+[image16]: ./examples/sample_image_gray_shift_up.png "Sample Image Gray shifted up"
+[image17]: ./examples/sample_image_gray_shift_down.png "Sample Image Gray shifted down"
+[image18]: ./examples/sample_image_gray_shift_left.png "Sample Image Gray shifted left"
+[image19]: ./examples/sample_image_gray_shift_right.png "Sample Image Gray shifted right"
 [image20]: ./examples/first_layer.png "First Layer"
 [image21]: ./examples/second_layer.png "Second Layer"
 
@@ -251,10 +251,16 @@ Visualization of a layer in the neural network is done in the 15th code cell of 
 Below are visualizations for the first and second layer in the neural network:
 
 
-*Layer1
+*Layer1*
+
+
 ![alt text][image20]
 
-*Layer2
+
+
+*Layer2*
+
+
 ![alt text][image21]
 
 **8. Summary**
