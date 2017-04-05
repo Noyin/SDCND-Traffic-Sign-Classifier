@@ -38,6 +38,7 @@ The goals / steps of this project are the following:
 [image19]: ./examples/sample_image_gray_shift_right.png "Sample Image Gray shifted right"
 [image20]: ./examples/first_layer.png "First Layer"
 [image21]: ./examples/second_layer.png "Second Layer"
+[image22]: ./examples/sample_image_gray_CLAHE.png "Sample Image with CLAHE"
 
 
 ---
@@ -76,12 +77,12 @@ this situation, color is not a deciding factor for correctly categorizing traffi
 
 ![alt text][image14]![alt text][image15]
 
-I further proceeded to normalize the images  make it easier to training a model and to improve training time.
+I further proceeded to augment the images in the training dataset by creating a copy of each image and adding shifts(-/+3) in all direction.I also created a copy of each image and applied Contrast Limited Adaptive Histogram Equalization. This process increases the training dataset from  34799 to 208,794. Adding augmented data helps to train a better model.
+Here is an example of a traffic sign image with its augmented images
 
-As a last step, I augmented the images by creating a copy of each image and adding shifts(-/+3) in all direction. This increases the training dataset from  34799 to 173995. Adding augmented data helps to train a better model.
-Here is an example of a traffic sign image before and after shift is added
+![alt text][image15]![alt text][image16]![alt text][image17]![alt text][image18]![alt text][image19]![alt text][image22]
 
-![alt text][image15]![alt text][image16]![alt text][image17]![alt text][image18]![alt text][image19]
+As a last step, I proceeded to normalize the images. This process also makes it easier to training a model and to improve training time.
 
 
 
@@ -93,10 +94,10 @@ My final model consisted of the following layers:
 |:---------------------:|:---------------------------------------------:|
 | Input         		| 32x32x1 Gray image   							|
 | Convolution 5x5    	| 1x1 stride, valid padding, outputs 28x28x6 	|
-| RELU					| 												|
+| ELU					| 0.75 dropout									|
 | Max pooling	      	| 2x2 stride,  outputs 14x14x6 				    |
 | Convolution 5x5    	| 1x1 stride, valid padding, outputs 10x10x16	|
-| RELU					| 												|
+| ELU					| 0.75 dropout									|
 | Max pooling	      	| 2x2 stride,  outputs 5x5x16                   |
 | Fully connected		| outputs 1X120       						    |
 | Fully connected		| outputs 1x84        						    |
@@ -113,14 +114,14 @@ The code for training the model is located in the sixth code cell of the ipython
 To train the model, I adjusting the values of parameters to get the highest prediction accuracy for my model.The following are the parameters I used to train my final model:
 
 *learning_rate = 0.001
-*epochs = 22
+*epochs = 30
 *batch_size = 128
 *test_valid_size = 256
-*dropout =1.00
+*dropout =0.75
 *mu = 0
 *sigma = 0.1
 
-I set the value of epoch to 22 as there was no improvement to the prediction accuracy for additional epochs.
+I set the value of epoch to 30 as there was no improvement to the prediction accuracy for additional epochs.
 
 
 The code for calculating the accuracy of the model is also located in the sixth cell of the Ipython notebook.
@@ -139,8 +140,8 @@ I initially created an architecture which yielded low prediction accuracy (~ 80.
 The architecture yielded optimal results.
 
 My final model results were:
-* validation set accuracy of 93.242630%
-* test set accuracy of 92.232779%
+* validation set accuracy of 94.671202%
+* test set accuracy of 93.927157%
 
 
 **5. Test a Model on New Images**
@@ -151,6 +152,9 @@ Here are five German traffic signs that I found on the web:
 ![alt text][image4] ![alt text][image5] ![alt text][image6]
 ![alt text][image7] ![alt text][image8]
 
+
+The trained traffic sign classifier relies on brightness , shapes, pattern and symbols as it is only confined to identifying traffic signs in grayscale. The model might find it hard to predict any of the images with any other image with similar shape or pattern. Images 1 and 5 might be wrongly classified with any of the other speedlimit traffic signs as they all have the same circular shape and pattern.
+Images 2 and 4 are triangular in shape and might be classified as any other traffic sign with similar shape. For instance, the model might classify image 2 and 4 as wild animal crossing , slippery road , bumpy road etc. Image 3 might be classified as any other traffic sign that has a circular or square shape .
 
 
 The code for making predictions on my final model is located in the 12th code cell of the Ipython notebook.
@@ -166,7 +170,7 @@ Here are the results of the prediction:
 | Speed limit (60km/h)  | Speed limit (60km/h)      					|
 
 
-The model was able to correctly guess 5 of the 5 traffic signs, which gives an accuracy of 100%. This compares favorably to the accuracy on the test set of 92.23%
+The model was able to correctly guess 5 of the 5 traffic signs, which gives an accuracy of 100%. This compares favorably to the accuracy on the test set of 93.92%
 
 
 
@@ -265,7 +269,7 @@ Below are visualizations for the first and second layer in the neural network:
 
 **8. Summary**
 
-The dataset used to train the traffic sign classifier was loaded and preprocessed by converting to grayscale , resizing to 32 x 32 x 1 and adding augmented data. The model architecture used to train the traffic sign classifier is the LeNet-5 architecture .
+The dataset used to train the traffic sign classifier was loaded and preprocessed by converting to grayscale , resizing to 32 x 32 x 1 , adding augmented data and normalizing. The model architecture used to train the traffic sign classifier is the LeNet-5 architecture .
 The architecture yielded a validation accuracy of 93.24 and a test accuracy of 92.23%. Further , 5 random traffic sign images were selected form the web and tested against the traffic sign classifier. The traffic sign classifier correctly predicted all the images with high confidence. Visualization of the layers in the neural network served as a guide for tuning parameters while training the traffic sign classifier.
 
 
