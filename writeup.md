@@ -270,6 +270,6 @@ Below are visualizations for the first and second layer in the neural network:
 **8. Summary**
 
 The dataset used to train the traffic sign classifier was loaded and preprocessed by converting to grayscale , resizing to 32 x 32 x 1 , adding augmented data and normalizing. The model architecture used to train the traffic sign classifier is the LeNet-5 architecture .
-The architecture yielded a validation accuracy of 93.24 and a test accuracy of 92.23%. Further , 5 random traffic sign images were selected form the web and tested against the traffic sign classifier. The traffic sign classifier correctly predicted all the images with high confidence. Visualization of the layers in the neural network served as a guide for tuning parameters while training the traffic sign classifier.
+The architecture yielded a validation accuracy of 94.67 and a test accuracy of 93.92%. Further , 5 random traffic sign images were selected form the web and tested against the traffic sign classifier. The traffic sign classifier correctly predicted all the images with high confidence. Visualization of the layers in the neural network served as a guide for tuning parameters while training the traffic sign classifier.
 
 
